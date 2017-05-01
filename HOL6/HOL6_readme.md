@@ -11,6 +11,7 @@ deploy and manage applications. For more information, visit official
 
 Below are prerequisites required to implement Deis.
 
+- A Github user account
 - Azure Container Service with Kubernetes orchestrator provisioned
 - Local client has helm and kubectl installed and able to connect to provisioned ACS cluster
 - General understanding of Docker and helm. More information is available in
@@ -135,9 +136,11 @@ Add this key to be able to be used by Deis
 
 `deis keys:add ~/.ssh/id_deis.pub`
 
-Now clone the repository:
+[Fork the repository](https://help.github.com/articles/fork-a-repo/), replace the base url with your Github name, and then clone it locally using ssh:
 
 `git clone git@github.com:dtzar/pumrp-deis.git`
+
+> Note: do NOT use HTTPS to clone as this will break the build process and using ssh to clone ensures the ssh keys are setup properly.  If clone via ssh fails, then the ssh key used to clone have not been properly added to your own Github account or are not configured properly on the local host executing the clone.
 
 **Step 3.** Create Deis App
 
