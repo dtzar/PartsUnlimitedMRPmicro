@@ -39,6 +39,10 @@ Create Kubernetes cluster using Azure container service cluster and connect to K
 The following screenshots and steps are provided for reference with respect to Parts Unlimited MRP project deployment.
 
 ```bash
+# Login 
+az login
+az account set --subscription="${SUBSCRIPTION_ID}"
+
 # Create Azure Resource group
 az group create --name=kube-res --location=eastasia
 
