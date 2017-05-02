@@ -16,6 +16,7 @@ application on this infrastructure using Helm.
 ## Prerequisites
 
 - Fundamental knowledge of how to use git version control.
+- This HOL assumes that you have installed and set up the [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 - Create an Azure Container Registry (ACR) account. To understand how to create, [see here.](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
     > Note: Other docker registries are supported, but steps given in this article will be a reference to ACR only.
 - Build files for each the microservices - This is required to create valid docker images to deploy to the Kubernetes cluster.  The only exception is the [orderservice.jar build file](https://github.com/Microsoft/PartsUnlimitedMRPmicro/blob/master/deploy/docker/Order/orderservicemsa-0.9.1.jar) is checked into source for ease of the ability to go through the exact HOL reference steps below.  Generating build files for each of the services is not required _if_ it is planned to go through the VSTS CI/CD/RM HOL since the builds will be generated through those steps.
