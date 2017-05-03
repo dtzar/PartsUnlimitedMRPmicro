@@ -55,6 +55,15 @@ az acs create --orchestrator-type=kubernetes --resource-group=kube-res --name=ku
 ![](./media/media/image3.png)
 *The script, while running will have a black screen and would take several minutes to complete. On completion, the script output should be similar to the above. If desired, check in Azure portal while the script is running to see resources being created. The above command creates a cluster named “kube-container” under “kube-res” resource group with two agents and one master.*
 
+Then install and configure kubectl command to access ACS cluster. 
+
+```
+az acs kubernetes install-cli
+az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
+```
+You need to set PATH environment for the command. By default, `/usr/local/bin/kubectl` is for a Linux or macOS system, `C:\Program Files (x86)\kubectl.exe` on Windows.
+For more detail, see [Connect to an Azure Container Service cluster](https://docs.microsoft.com/en-us/azure/container-service/container-service-connect).
+
 Check connectivity to the newly created ACS cluster by running
 
 ```bash
