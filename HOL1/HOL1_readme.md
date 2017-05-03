@@ -62,6 +62,7 @@ az acs kubernetes install-cli
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 You need to set PATH environment for the command. By default, `/usr/local/bin/kubectl` is for a Linux or macOS system, `C:\Program Files (x86)\kubectl.exe` on Windows.
+If you get an old version of kubectl, you can download it using `--client-version` for `az acs kubernetes install-cli`.
 For more detail, see [Connect to an Azure Container Service cluster](https://docs.microsoft.com/en-us/azure/container-service/container-service-connect).
 
 Check connectivity to the newly created ACS cluster by running
