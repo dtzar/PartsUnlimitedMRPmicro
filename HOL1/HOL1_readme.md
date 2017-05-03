@@ -16,6 +16,7 @@ application on this infrastructure using Helm.
 ## Prerequisites
 
 - Fundamental knowledge of how to use git version control.
+- This HOL assumes that you have installed and set up the [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 - Create an Azure Container Registry (ACR) account. To understand how to create, [see here.](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
     > Note: Other docker registries are supported, but steps given in this article will be a reference to ACR only.
 - Build files for each the microservices - This is required to create valid docker images to deploy to the Kubernetes cluster.  The only exception is the [orderservice.jar build file](https://github.com/Microsoft/PartsUnlimitedMRPmicro/blob/master/deploy/docker/Order/orderservicemsa-0.9.1.jar) is checked into source for ease of the ability to go through the exact HOL reference steps below.  Generating build files for each of the services is not required _if_ it is planned to go through the VSTS CI/CD/RM HOL since the builds will be generated through those steps.
@@ -39,6 +40,10 @@ Create Kubernetes cluster using Azure container service cluster and connect to K
 The following screenshots and steps are provided for reference with respect to Parts Unlimited MRP project deployment.
 
 ```bash
+# Login 
+az login
+az account set --subscription="${SUBSCRIPTION_ID}"
+
 # Create Azure Resource group
 az group create --name=kube-res --location=eastasia
 
@@ -49,6 +54,16 @@ az acs create --orchestrator-type=kubernetes --resource-group=kube-res --name=ku
 
 ![](./media/media/image3.png)
 *The script, while running will have a black screen and would take several minutes to complete. On completion, the script output should be similar to the above. If desired, check in Azure portal while the script is running to see resources being created. The above command creates a cluster named “kube-container” under “kube-res” resource group with two agents and one master.*
+
+Then install and configure kubectl command to access ACS cluster. 
+
+```
+az acs kubernetes install-cli
+az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
+```
+You need to set PATH environment for the command. By default, `/usr/local/bin/kubectl` is for a Linux or macOS system, `C:\Program Files (x86)\kubectl.exe` on Windows.
+If you get an old version of kubectl, you can download it using `--client-version` for `az acs kubernetes install-cli`.
+For more detail, see [Connect to an Azure Container Service cluster](https://docs.microsoft.com/en-us/azure/container-service/container-service-connect).
 
 Check connectivity to the newly created ACS cluster by running
 
