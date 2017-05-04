@@ -205,6 +205,8 @@ Let us quickly go through the functionality of each of the file and folder:
     cpu: 100m  
     memory: 128Mi
 
+For more information, you can refer [Managing Compute Resources for Containers](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)
+
 > **Templates(folder)**: A directory of templates, when combined with values, will generate valid Kubernetes manifest files.
 
 > **_helper.tpl**: (optional) This file can be used to have default fully qualified app names.
