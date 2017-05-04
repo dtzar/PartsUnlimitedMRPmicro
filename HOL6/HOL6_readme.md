@@ -62,6 +62,8 @@ The ip details can be found by executing:
 
 `kubectl --namespace=deis describe svc deis-router`
 
+  > Note: It will take a few minutes for the external IP address to be assigned.  If it says "Creating Load Balancer", just wait and run this command again.
+
 ![](./media/media/image5.png)
 
 Now copy the [load-balancer-ingress] IP, replace it in the below command, and execute it:
