@@ -274,3 +274,5 @@ Here are some useful common helm commands:
 - `helm delete <releasename>`: Delete all resources deployed to the clsuter defined in the chart.
 - `helm lint <chartname>`: Verifies that chart is valid and meeting the standard.
 - `helm install <chart> --name=<releasename> --dry-run --debug`: To perform dry run and debug/review the generated kubernetes deployment before trying to actually deploy to the cluster.
+
+[This is the current home](https://github.com/Microsoft/PartsUnlimitedMRPmicro/blob/gh-pages/_posts/2017-04-24-deploy-acs-kubernetes-helm.md) for this HOL.

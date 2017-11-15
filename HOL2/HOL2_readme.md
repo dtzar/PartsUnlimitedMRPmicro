@@ -34,13 +34,6 @@ The following workflow is to be followed
 
 1. Release Order Service to different environments
 
-1. Clone Build and Release definitions for all other java-based
-    microservices
-
-1. Setup CI / CD / RM for Dealer Microservice
-
-1. Setup CI / CD / RM for Front-End Website
-
 ## 1\. Setup Continuous Integration (CI)
 
 1. Add a new **Docker Registry** service Endpoint in VSTS to:
